@@ -6,4 +6,11 @@
 
 footer {
     background-color: #006095;
+    color: #fff;
+}
+
+footer small {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

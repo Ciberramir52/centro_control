@@ -5,9 +5,9 @@ export function NavBar() {
     return ( 
         <nav id="navbar-container">    
             <DashboardIcon fontSize='large'/>
-            <h1>Centro de control</h1>
-            <a href="#"><h2>Principal</h2></a>
-            <a href="#"><h2>Registro</h2></a>
+            <h1>Control Center</h1>
+            <a href="#"><h2>Main</h2></a>
+            <a href="#"><h2>Collected Data</h2></a>
         </nav>
      );
 }

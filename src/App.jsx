@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { NavBar, Dashboard } from './main/components'
+import { NavBar, Dashboard, Footer } from './main/components'
 
 function App() {
 
@@ -11,9 +11,7 @@ function App() {
       <div id="page-container">
         <NavBar />
         <Dashboard />
-        <footer>
-          <small>&copy; 2024 Landing Page de Deportes</small>
-        </footer>
+        <Footer />
       </div>
         {/* <div>
           <a href="https://vitejs.dev" target="_blank">
