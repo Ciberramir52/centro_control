@@ -6,8 +6,8 @@ export function NavBar() {
         <nav id="navbar-container">    
             <DashboardIcon fontSize='large'/>
             <h1>Control Center</h1>
-            <a href="#"><h2>Main</h2></a>
-            <a href="#"><h2>Collected Data</h2></a>
+            <a href="/"><h2>Main</h2></a>
+            <a href="/data"><h2>Collected Data</h2></a>
         </nav>
      );
 }

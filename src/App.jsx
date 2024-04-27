@@ -1,18 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter } from "react-router-dom"
+import { AppRouter } from "./router";
 import './App.css'
-import { NavBar, Dashboard, Footer } from './main/components'
+import { MainPage } from "./main/pages/";
+import { TableData } from "./data/components/TableData";
 
 function App() {
 
   return (
     <>
-      <div id="page-container">
-        <NavBar />
-        <Dashboard />
-        <Footer />
-      </div>
+        <BrowserRouter>
+          <AppRouter />
+        </BrowserRouter>
         {/* <div>
           <a href="https://vitejs.dev" target="_blank">
             <img src={viteLogo} className="logo" alt="Vite logo" />
