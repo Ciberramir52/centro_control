@@ -1,16 +1,21 @@
 import { BrowserRouter } from "react-router-dom"
 import { AppRouter } from "./router";
 import './App.css'
-import { MainPage } from "./main/pages/";
-import { TableData } from "./data/components/TableData";
+import { Provider } from "react-redux";
+import { persistor, store } from "./store";
+import { PersistGate } from "redux-persist/integration/react";
 
 function App() {
 
   return (
     <>
-        <BrowserRouter>
-          <AppRouter />
-        </BrowserRouter>
+      <Provider store={ store }>
+        <PersistGate loading={null} persistor={ persistor }>
+          <BrowserRouter>
+            <AppRouter />
+          </BrowserRouter>
+        </PersistGate>
+      </Provider>
         {/* <div>
           <a href="https://vitejs.dev" target="_blank">
             <img src={viteLogo} className="logo" alt="Vite logo" />
