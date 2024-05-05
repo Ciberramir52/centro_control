@@ -1,2 +1,2 @@
-export { vaccumDataNull } from "./dataNull";
+export * from "./data";
 export * from "./dataSlice";

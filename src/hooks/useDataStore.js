@@ -6,7 +6,7 @@ export const useDataStore = () => {
 
     const { vaccumData } = useAppSelector( ( state ) => state.data );
 
-    const updateVaccumData = () => () => dispatch( onUpdateVaccumData() );
+    const updateVaccumData = ( data ) => () => dispatch( onUpdateVaccumData( data ) );
 
     return {
         vaccumData,

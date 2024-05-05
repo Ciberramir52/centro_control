@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { vaccumDataNull } from "./";
+import { vaccumDataNull, vaccumInitialData } from "./";
 
 export const dataSlice = createSlice({
     name: 'users',
     initialState: {
-        vaccumData: vaccumDataNull,
+        vaccumData: vaccumInitialData,
     },
     reducers: {
         onUpdateVaccumData: ( state, { payload }) => {

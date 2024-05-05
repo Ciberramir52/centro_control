@@ -1,10 +1,10 @@
 import "./Main.css";
 
-export function Card() {
+export function Card({ title, data, unit }) {
     return ( 
         <div className="card-container">
-            <h3>Data</h3>
-            <h2>35 M</h2>
+            <h3>{ title }</h3>
+            <h2>{ data }  { unit }</h2>
         </div>
      );
 }

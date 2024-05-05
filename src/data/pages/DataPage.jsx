@@ -5,13 +5,10 @@ import { useCollectedDataStore } from '../../hooks/useCollectedDataStore';
 
 function DataPage() {
 
-    const { updateVaccumCollectedData, vaccumCollectedData } = useCollectedDataStore();
 
-    console.log(vaccumCollectedData);
-
-    useEffect(() => {
-        new WebSocket("ws://192.168.1.91:3000");
-    }, []);
+    // useEffect(() => {
+    //     new WebSocket("ws://192.168.1.91:3000");
+    // }, []);
 
     return ( 
         <div id="page-container">
