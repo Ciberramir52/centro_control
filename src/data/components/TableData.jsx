@@ -20,12 +20,12 @@ export function TableData() {
                 <tbody>
                     {
                         vaccumCollectedData.map( data => (
-                            <tr key={ data.dateTime }>
-                                <td>{ data.productCode }</td>
-                                <td>{ data.testTime } s</td>
-                                <td>{ data.status }</td>
-                                <td>{ data.minPressure } kPa</td>
-                                <td>{ data.dateTime }</td>
+                            <tr key={ data.id }>
+                                <td>{ data.product_code }</td>
+                                <td>{ data.test_time } s</td>
+                                <td>{ data.test_status }</td>
+                                <td>{ data.max_pressure } kPa</td>
+                                <td>{ data.date_time }</td>
                             </tr>
                          ) )
                     }

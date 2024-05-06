@@ -5,14 +5,21 @@ export const collectedDataSlice = createSlice({
     name: 'collectedData',
     initialState: {
         vaccumCollectedData: testCollectedData,
+        isLoadingData: false,
     },
     reducers: {
-        onUpdateVaccumCollectedData: ( state, { payload }) => {
-            state.vaccumData = payload;
+        vaccumCollectedDataLoaded: ( state, { payload }) => {
+            state.vaccumCollectedData = payload;
+            state.isLoadingData = false;
         },
+        startLoadingCollectedData: ( state ) => {
+            state.isLoadingData = true;
+        }
+
     }
 });
 
 export const {
-    onUpdateVaccumCollectedData,
+    vaccumCollectedDataLoaded,
+    startLoadingCollectedData
 } = collectedDataSlice.actions;

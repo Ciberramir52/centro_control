@@ -2,13 +2,19 @@ import { useEffect } from 'react';
 import { NavBar, Footer } from '../../main/components';
 import { TableData } from '../components';
 import { useCollectedDataStore } from '../../hooks/useCollectedDataStore';
+import { useAppDispatch } from '../../hooks';
 
 function DataPage() {
 
+    const { isLoadingData, getCollectedData, vaccumCollectedData  } = useCollectedDataStore();
 
-    // useEffect(() => {
-    //     new WebSocket("ws://192.168.1.91:3000");
-    // }, []);
+    const dispatch = useAppDispatch();
+
+    console.log( vaccumCollectedData );
+
+    useEffect(() => {
+        dispatch( getCollectedData() );
+    }, []);
 
     return ( 
         <div id="page-container">
