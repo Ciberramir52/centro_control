@@ -3,11 +3,15 @@ import { Card } from "./Card";
 import { useAppDispatch, useDataStore } from "../../hooks";
 
 export function Dashboard() {
-    const { vaccumData, updateVaccumData } = useDataStore();
+    const { vaccumData, updateVaccumData, socket } = useDataStore();
 
     const { productCode, testTime, status, minPressure } = vaccumData;
 
     const dispatch = useAppDispatch();
+
+    socket.addEventListener("message", (event) => {
+        console.log("Message from server ", event.data);
+    });
 
     console.log(vaccumData);
 
