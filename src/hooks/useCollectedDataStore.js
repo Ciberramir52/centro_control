@@ -12,7 +12,7 @@ export const useCollectedDataStore = () => {
           try {
             dispatch( startLoadingCollectedData() );
             const {data} = await collectedDataAPI;
-            console.log(data);
+            // console.log(data);
             dispatch( vaccumCollectedDataLoaded( data ) );
           } catch(err) {
             console.error(err);

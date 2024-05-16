@@ -1,10 +1,16 @@
-import { useCollectedDataStore } from '../../hooks';
+import { useEffect } from 'react';
+import { useAppDispatch, useCollectedDataStore } from '../../hooks';
 import './TableData.css';
 
 export function TableData() {
-    const { updateVaccumCollectedData, vaccumCollectedData } = useCollectedDataStore();
+    const { isLoadingData, getCollectedData, vaccumCollectedData  } = useCollectedDataStore();
 
-    console.log(vaccumCollectedData);
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        console.log( vaccumCollectedData );
+        dispatch( getCollectedData() );
+    }, []);
     return ( 
         <main id="table-container">
             <table>

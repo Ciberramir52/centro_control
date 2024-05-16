@@ -15,9 +15,11 @@ export const processSlice = createSlice({
         },
         onStartVaccum: ( state ) => {
             state.isVaccumRunning = true;
+            state.activeProcess = 'vaccum';
         },
         onStopVaccum: ( state ) => {
             state.isVaccumRunning = false;
+            state.activeProcess = '';
         },
     }
 })

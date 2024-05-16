@@ -6,6 +6,8 @@ export const useProcessStore = () => {
 
     const { activeProcess, isVaccumRunning } = useAppSelector( ( state ) => state.processes );
 
+    // console.log( isVaccumRunning );
+
     const setActiveProcess = () => () => dispatch( onSetActiveProcess() );
     const startVaccum = () => () => dispatch( onStartVaccum() );
     const stopVaccum = () => () => dispatch( onStopVaccum() );

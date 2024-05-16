@@ -6,15 +6,6 @@ import { useAppDispatch } from '../../hooks';
 
 function DataPage() {
 
-    const { isLoadingData, getCollectedData, vaccumCollectedData  } = useCollectedDataStore();
-
-    const dispatch = useAppDispatch();
-
-    console.log( vaccumCollectedData );
-
-    useEffect(() => {
-        dispatch( getCollectedData() );
-    }, []);
 
     return ( 
         <div id="page-container">
