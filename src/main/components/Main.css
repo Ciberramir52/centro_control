@@ -1,18 +1,25 @@
 main#dashboard-container {
+    padding: 10% 0;
     background-color: #43a5df;
     font-size: 40px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 60px;
     align-items: center;
 }
 
-#dashboard-container div {
+#dashboard-container div, #data-container, .input-container {
     display: flex;
     /* justify-content: center; */
     align-items: center;
-    gap: 20px;
+    /* gap: 20px; */
+}
+
+#cards-container {
     flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-evenly;
 }
 
 .card-container {
@@ -39,4 +46,22 @@ main#dashboard-container {
     border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 15px;
     cursor: pointer;
+}
+
+#data-container {
+    gap: 70px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.input-container {
+    flex-direction: column;
+    gap: 20px;
+}
+
+input {
+    font-size: 1.5rem;
+    padding: 10px;
+    color: gray;
+    border-radius: 5px;
 }

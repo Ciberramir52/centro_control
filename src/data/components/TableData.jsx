@@ -30,7 +30,7 @@ export function TableData() {
                                 <td>{ data.product_code }</td>
                                 <td>{ data.test_time } s</td>
                                 <td>{ data.test_status }</td>
-                                <td>{ data.max_pressure } kPa</td>
+                                <td>{ data.max_pressure } Bar</td>
                                 <td>{ data.date_time }</td>
                             </tr>
                          ) )

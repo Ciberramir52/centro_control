@@ -1,6 +1,6 @@
 #page-container {
     display: grid;
-    grid-template-rows: 1fr 10fr 1fr;
+    grid-template-rows: 80px auto 80px;
     flex-direction: column;
 }
 

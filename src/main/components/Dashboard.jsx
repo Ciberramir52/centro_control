@@ -1,13 +1,19 @@
 import "./Main.css";
 import { Card } from "./Card";
 import { useAppDispatch, useDataStore, useProcessStore } from "../../hooks";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export function Dashboard() {
 
+
+    const [inputValues, setInputValues] = useState({
+        productCode: '',
+        testTime: 0
+    });
+
     const { vaccumData, updateVaccumData, socket } = useDataStore();
 
-    const { activeProcess, isVaccumRunning, startVaccum, stopVaccum } = useProcessStore();
+    const { isVaccumRunning, startVaccum, stopVaccum } = useProcessStore();
 
     const { productCode: product_code,
         testTime: test_time,
@@ -16,9 +22,23 @@ export function Dashboard() {
 
     const dispatch = useAppDispatch();
 
-    const startProcess = () => {
-        socket.send("vaccum:control:start");
-    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Aquí puedes hacer lo que quieras con el objeto que contiene los valores de los inputs
+        console.log(inputValues);
+        if (inputValues.productCode !== "" && inputValues.testTime !== "" && parseInt(inputValues.testTime, 10) > 0) {
+            socket.send(`vaccum:control:start:${inputValues.productCode},${inputValues.testTime}`);
+        }
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setInputValues(prevState => ({
+          ...prevState,
+          [name]: value
+        }));
+      };
 
     const messageEvent = (event) => {
         const socketData = event.data;
@@ -43,7 +63,7 @@ export function Dashboard() {
     }
 
     useEffect(() => {
-        socket.addEventListener("open", (event) => {
+        socket.addEventListener("open", () => {
             console.log('Connected to WS Server!');
         });
         socket.addEventListener("message", (event) => {
@@ -57,9 +77,35 @@ export function Dashboard() {
                 <Card title='Product Code' data={product_code} unit='' />
                 <Card title='Test Time' data={test_time} unit='s' />
                 <Card title='Status' data={status_s} unit='' />
-                <Card title='Min. Pressure' data={min_Pressure} unit='kPa' />
+                <Card title='Pressure' data={min_Pressure} unit='Bar' />
             </div>
-            <button disabled={isVaccumRunning} onClick={startProcess} type="button">Iniciar Proceso</button>
+            <div id="data-container">
+                <div className="input-container">
+                    <label htmlFor="product-code">Insert Product Code</label>
+                    <input
+                        id="product-code"
+                        type="text" 
+                        autoComplete="false"
+                        value={inputValues.productCode}
+                        placeholder="Product Code"
+                        onChange={handleChange}
+                        name="productCode"
+                    />
+                </div>
+                <div className="input-container">
+                    <label htmlFor="test-time">Insert Test Time</label>
+                    <input
+                        type="number"
+                        id="test-time"
+                        autoComplete="false"
+                        value={inputValues.testTime}
+                        placeholder="Test Time"
+                        onChange={handleChange}
+                        name="testTime"
+                    />
+                </div>
+            </div>
+            <button disabled={isVaccumRunning} onClick={handleSubmit} type="button">Iniciar Proceso</button>
         </main>
     );
 }
